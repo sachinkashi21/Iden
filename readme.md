@@ -35,6 +35,7 @@ project/
 │── auth.py              # Login + session handling
 │── session.json         # Saved session storage (ignored in git)
 │── products.json        # Scraped product data (ignored in git)
+│── screenshots          
 │── scraper/
 │    ├── __init__.py
 │    ├── utils.py        # JSON file helpers
