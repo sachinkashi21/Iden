@@ -1,0 +1,5 @@
+URL = "https://hiring.idenhq.com/"
+SESSION_FILE = "session.json"
+PRODUCTS_FILE = "products.json"
+EMAIL = "sachin.a.h@campusuvce.in"
+PASSWORD = "rOGMY5EA"
