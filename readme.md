@@ -29,18 +29,19 @@ The script handles login, session management, dynamic content loading, and expor
 
 ## ⚙️ Project Structure
 
+```text
 project/
 │── main.py              # Entry point
 │── config.py            # Configs & constants
 │── auth.py              # Login + session handling
 │── session.json         # Saved session storage (ignored in git)
 │── products.json        # Scraped product data (ignored in git)
-│── screenshots          
+│── screenshots/         # Screenshots folder
 │── scraper/
 │    ├── __init__.py
 │    ├── utils.py        # JSON file helpers
 │    ├── products.py     # Product scraping logic
-
+```
 ---
 
 ## 🛠 Setup & Installation
