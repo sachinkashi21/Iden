@@ -18,4 +18,9 @@ def main():
         print(f"❌ Fatal error: {e}")
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except KeyboardInterrupt:
+        print("❌ Interrupted by user.")
+    except Exception as e:
+        print(f"❌ Error: {e}")

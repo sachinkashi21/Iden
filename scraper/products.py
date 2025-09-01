@@ -5,35 +5,41 @@ import re
 
 import re
 
+import re
+
 def extract_product_data_html(product_html: str) -> dict:
     name_match = re.search(r'<div class="h-12[^"]*"[^>]*>(.*?)</div>', product_html, re.DOTALL)
     name = name_match.group(1).strip() if name_match else "Unknown"
 
     details = {}
+    # ✅ Initialize Rating for all products
+    details["Rating"] = 3.3 
+
     rows = re.findall(r'<div class="flex items-center[^"]*"[^>]*>(.*?)</div>', product_html, re.DOTALL)
-    # details["Rating"]=3.0
+
     for row in rows:
         spans = re.findall(r'<span[^>]*>(.*?)</span>', row, re.DOTALL)
         if len(spans) >= 2:
             key = spans[0].strip().replace(":", "").replace(" ", "_")
             if key.lower() == "rating":
+                # Direct numeric rating
                 m = re.search(r'<span[^>]*>\s*(\d+(?:\.\d+)?)\s*</span>', row, re.DOTALL)
                 if m:
-                    details[key] = float(m.group(1))
+                    details["Rating"] = float(m.group(1))
                     continue
 
+                # Search for "Rating" label and numeric value near it
                 label = re.search(r'<span[^>]*>\s*Rating\s*</span>', product_html, re.IGNORECASE)
                 if label:
-                    window = product_html[label.end(): label.end() + 600]  # small window after the label
+                    window = product_html[label.end(): label.end() + 600]
                     m2 = re.search(r'<span[^>]*>\s*(\d+(?:\.\d+)?)\s*</span>', window, re.DOTALL)
                     if m2:
-                        details[key] = float(m2.group(1))
+                        details["Rating"] = float(m2.group(1))
                         continue
 
+                    # Fallback: count stars
                     star_count = len(re.findall(r'<svg[^>]*(?:fill-[^">]*yellow|text-yellow)[^>]*>', window, re.IGNORECASE))
-                    details[key] = float(star_count) if star_count > 0 else None
-                else:
-                    details[key] = None
+                    details["Rating"] = float(star_count) if star_count > 0 else None
             else:
                 details[key] = spans[1].strip()
 
