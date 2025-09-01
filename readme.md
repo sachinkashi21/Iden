@@ -85,6 +85,28 @@ python main.py
 
 ---
 
+## 📸 Screenshots
+
+### Chromium Window
+![Chromium Window](https://raw.githubusercontent.com/sachinkashi21/Iden/refs/heads/main/screenshots/chromium_window.png)
+
+### Login Session Saved
+![Login Session Saved](https://raw.githubusercontent.com/sachinkashi21/Iden/refs/heads/main/screenshots/login_session_saved.png)
+
+### Data Extraction Started
+![Data Extraction Started](https://raw.githubusercontent.com/sachinkashi21/Iden/refs/heads/main/screenshots/data_extraction_started.png)
+
+### Data Extraction Finished
+![Data Extraction Finished](https://raw.githubusercontent.com/sachinkashi21/Iden/refs/heads/main/screenshots/data_extraction_finished.png)
+
+### Extracted JSON
+![Extracted JSON](https://raw.githubusercontent.com/sachinkashi21/Iden/refs/heads/main/screenshots/data_extracted_json.png)
+
+### Session Data
+![Session Data](https://raw.githubusercontent.com/sachinkashi21/Iden/refs/heads/main/screenshots/session_data.png)
+
+---
+
 ## ✅ Strategies used for Excellence
 
 - Smart waiting for elements before interaction using `wait_for_function` and `wait_for_load_state`.  
